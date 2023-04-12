@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Beta Baphirmationator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+
+  </head>
+  <body>
+    <div id="app">
+
+ 
+            
+                <h3>You're the Ultimate Source of Empowerment!</h3> 
+                <p>Click on a category to begin</p>   
+            
+                <a href="#" v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">&nbsp {{ key }} &nbsp</a>
+
+            <div v-if="selectedCategory">
+                <h3>{{ selectedCategory }}</h3>
+                <img :src="selectedCategoryImage" alt="">
+                <p>{{ selectedCategoryDescription }}</p>
+                <p>{{ currentBaphirmation }}</p>
+    
+                <a href="#" @click="generateNextBaphirmation">
+                    <p>Baphirmate</p>
+                </a>
+            </div>
+
+
+  
+      
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

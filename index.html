@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Beta Baphirmationator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <header>
+
+        <h1>Beta Baphirmationator</h1>
+        <p v-if="baphirmationatorData">{{ baphirmationatorData.baphirmationator_version }}</p>
+        <p v-if="baphirmationatorData">{{ baphirmationatorData.about }}</p>
+      </header>
+
+      <main>
+
+        <div class="baphirmation" v-if="selectedCategory">
+            <h3>{{ selectedCategory }}</h3>
+            <p>{{ selectedCategoryDescription }}</p>
+
+            <p>{{ currentBaphirmation }}</p>
+
+          <button @click="generateNextBaphirmation">
+            <img :src="selectedCategoryImage" alt="">
+            <h2>Baphirmate</h2>
+          </button>
+        </div>
+
+        <div class="baphirmation" v-else-if="selectedCategory === null">
+            <h3>You're the Ultimate Source of Empowerment!</h3>
+            <br />
+            <p>
+              Transform your life with the Baphirmationator! Choose from a wide range of categories, including love, career, and personal growth, and start empowering yourself today. Access our easy-to-use app whenever you need it and build a positive mindset that will help you tackle anything life throws your way. Select a category below and get started!
+            </p>
+
+        </div>
+
+        <div class="categories">
+          <button v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">
+            <img :src="category.image_url" alt="">
+            <h2>{{ key }}</h2>
+          </button>
+        </div>
+
+      </main>
+
+      <footer>
+        <p>&copy; 2023 Baphirmationator</p>
+      </footer>
+      
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
