@@ -22,13 +22,15 @@
         <div class="baphirmation" v-if="selectedCategory">
             <h3>{{ selectedCategory }}</h3>
             <p>{{ selectedCategoryDescription }}</p>
+            
+            <button type="button" @click="generateNextBaphirmation">
+              <img :src="selectedCategoryImage" alt="">
+              <h2>Baphirmate</h2>
+            </button>
 
             <p>{{ currentBaphirmation }}</p>
 
-          <button @click="generateNextBaphirmation">
-            <img :src="selectedCategoryImage" alt="">
-            <h2>Baphirmate</h2>
-          </button>
+
         </div>
 
         <div class="baphirmation" v-else-if="selectedCategory === null">
@@ -41,7 +43,7 @@
         </div>
 
         <div class="categories">
-          <button v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">
+          <button type="button" v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">
             <img :src="category.image_url" alt="">
             <h2>{{ key }}</h2>
           </button>
