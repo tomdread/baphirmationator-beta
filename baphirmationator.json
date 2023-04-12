@@ -1,7 +1,7 @@
 {
     "baphirmationator_data": {
       "baphirmationator_version": "66.6",
-      "about": "Baphirmationator is a tool for creating and sharing baphirmations. Baphirmationator is a work in progress and is open source. If you would like to contribute to the project, please visit the GitHub page.",
+      "about": "Baphirmationator is a tool for creating and sharing baphirmations. If you would like to contribute to the project, please visit the GitHub page.",
       "logo": "img-001/logo.png",
       "baphirmation_categories": {
         "Self Love": {
