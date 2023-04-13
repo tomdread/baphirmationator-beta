@@ -12,24 +12,25 @@
 
       <header>
 
-        <h1>Beta Baphirmationator</h1>
-        <p v-if="baphirmationatorData">{{ baphirmationatorData.baphirmationator_version }}</p>
+        <h1>Beta Baphirmationator <span v-if="baphirmationatorData">{{ baphirmationatorData.baphirmationator_version }}  </span></h1>        
         <p v-if="baphirmationatorData">{{ baphirmationatorData.about }}</p>
       </header>
 
       <main>
 
-        <div class="baphirmation" v-if="selectedCategory">
+
+        
+  <div class="baphirmation" v-if="selectedCategory">
             <h3>{{ selectedCategory }}</h3>
             <p>{{ selectedCategoryDescription }}</p>
             
-            <button type="button" @click="generateNextBaphirmation">
+            <button type="button" class="" @click="generateNextBaphirmation">
               <img :src="selectedCategoryImage" alt="">
               <h2>Baphirmate</h2>
             </button>
-
-            <p>{{ currentBaphirmation }}</p>
-
+            
+              <p class="currentBaphirmationText">{{ currentBaphirmation }}</p>
+            
 
         </div>
 
@@ -39,11 +40,10 @@
             <p>
               Transform your life with the Baphirmationator! Choose from a wide range of categories, including love, career, and personal growth, and start empowering yourself today. Access our easy-to-use app whenever you need it and build a positive mindset that will help you tackle anything life throws your way. Select a category below and get started!
             </p>
-
         </div>
 
         <div class="categories">
-          <button type="button" v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">
+          <button type="button" class="" v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">
             <img :src="category.image_url" alt="">
             <h2>{{ key }}</h2>
           </button>

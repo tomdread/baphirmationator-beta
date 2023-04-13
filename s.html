@@ -2,36 +2,77 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Beta Baphirmationator</title>
+    <title>Baphirmationator Beta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style001.css">
 
   </head>
   <body>
-    <div id="app">
+       <div id="app">
 
- 
-            
-                <h3>You're the Ultimate Source of Empowerment!</h3> 
-                <p>Click on a category to begin</p>   
-            
-                <a href="#" v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">&nbsp {{ key }} &nbsp</a>
+          <div class="wrapper">
 
-            <div v-if="selectedCategory">
+            <header class="header"> 
+            
+              <div v-if="selectedCategory">
                 <h3>{{ selectedCategory }}</h3>
-                <img :src="selectedCategoryImage" alt="">
                 <p>{{ selectedCategoryDescription }}</p>
-                <p>{{ currentBaphirmation }}</p>
-    
-                <a href="#" @click="generateNextBaphirmation">
-                    <p>Baphirmate</p>
-                </a>
-            </div>
+              </div>
+              
+              <div v-else-if="selectedCategory === null">
+                <h3>Baphirmationator Beta</h3>
+                <p>
+                  In the shadows of the digital night, an app of uncanny eloquence awaits, ever eager to weave its mystique 
+                  around your quivering soul. It shall conjure resilience, enabling you to tread upon the path of adversity 
+                  with a preternatural grace. Venture into arcane realms and set forth on an odyssey of self-revelation and 
+                  metamorphosis.
+                </p>
+              </div>
+
+              <div class="buttons">
+                <button v-for="(category, key) in baphirmationCategories" :key="key" type="button" @click="selectCategory(key)">{{ key }}</button>
+              </div>
+
+            </header>
+
+            <aside class="sidebar">
+
+              <img v-if="selectedCategory" :src="selectedCategoryImage" alt="">
+              <img v-else-if="selectedCategory === null" src="img-001/logo.png" alt="">
+
+            </aside>
+
+            <article class="content">
+
+              <div v-if="selectedCategory">
+                <h3>{{ selectedCategory }}</h3>
+                <p>{{ currentBaphirmation }}</p>    
+                <button type="button" @click="generateNextBaphirmation">
+                  Baphirmate
+                </button>
+              </div>
+
+              <div v-else-if="selectedCategory === null">
+                <h3>You are the Ultimate Source of Empowerment!</h3>
+                <p>
+                  Awaken the dormant powers that slumber within your breast, as you invoke the enigmatic Baphirmationator. 
+                  Embark upon this phantasmagoric voyage, and commence the cultivation of your indomitable spirit anon.
+                </p>
+              </div>
+
+            </article>
+
+            <footer class="footer">
+
+              Footer
+            
+            </footer>
+          
+          </div> <!-- end of wrapper div -->
 
 
-  
-      
-    </div>
+      </div> <!-- end of app div -->
     <script src="app.js"></script>
   </body>
 </html>
