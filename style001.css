@@ -1,74 +1,108 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
+/* Set global styles for body */
 body {
-  margin: 40px;
+  margin: 10px;
   font-family: 'Open Sans', 'sans-serif';
-  background-color: #fff;
+  background-color: #B74E91;
   color: #444;
 }
 
+/* Set margin and spacing for headings and paragraphs */
 h1, p {
   margin: 0 0 1em 0;
 }
 
-.wrapper {
-  max-width: 1280px;
-  margin: 0 10px;
-  display: grid;
-  grid-gap: 10px;
-}
-
+/* Style for button container */
 .buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.sidebar {
-    text-align: center;
-}
-article {
-    text-align: center;
-}
 
-@media screen and (min-width: 500px) {
-
-  /* no grid support? */
-  .sidebar {
-    float: left;
-    width: 19.1489%;
-  }
-
-  .content {
-    float: right;
-    width: 79.7872%;
-  }
-
-  .wrapper {
-    margin: 0 auto;
-    grid-template-columns: 1fr 3fr;
-  }
-  
-  .header, .footer {
-    grid-column: 1 / -1;
-    /* needed for the floated layout */
-    clear: both;
-  }
-
-}
-
-.wrapper > * {
-  background-color: #444;
+/* Style for each button */
+.buttons button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: 2px solid #000;
+  background-color: #312450;
   color: #fff;
   border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
-  /* needed for the floated layout*/
-  margin-bottom: 10px;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent buttons with two words from wrapping */
 }
 
-/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+/* Style for button hover effect */
+.buttons button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Style for button container - use flexbox to align buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Style for each button - use flexbox to size buttons */
+.buttons button {
+  flex-basis: calc(20% - 10px);
+  margin: 5px;
+}
+
+/* Style for sidebar - use flexbox to align elements */
+.sidebar {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+/* Style for article - use flexbox to align elements */
+article {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+/* Reset box-sizing for all elements */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Style for sidebar when grid is not supported */
+.sidebar {
+  float: left;
+  width: 19.1489%;
+}
+
+/* Style for wrapper - use grid layout */
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+}
+
+/* Style for each item in wrapper - use grid layout */
+.wrapper > * {
+  background-color: #5E42A6;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 120%;
+  margin-bottom: 10px; /* Needed for floated layout */
+}
+
+/* Style for header and footer - use grid layout */
+.header, .footer {
+  grid-column: 1 / -1;
+  clear: both; /* Needed for floated layout */
+}
+
+/* Style for wrapper when grid is supported - reset margin and width */
 @supports (display: grid) {
   .wrapper > * {
     width: auto;

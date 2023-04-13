@@ -14,59 +14,63 @@
           <div class="wrapper">
 
             <header class="header"> 
-            
-              <div v-if="selectedCategory">
-                <h3>{{ selectedCategory }}</h3>
-                <p>{{ selectedCategoryDescription }}</p>
-              </div>
               
-              <div v-else-if="selectedCategory === null">
-                <h3>Baphirmationator Beta</h3>
-                <p>
-                  In the shadows of the digital night, an app of uncanny eloquence awaits, ever eager to weave its mystique 
-                  around your quivering soul. It shall conjure resilience, enabling you to tread upon the path of adversity 
-                  with a preternatural grace. Venture into arcane realms and set forth on an odyssey of self-revelation and 
-                  metamorphosis.
-                </p>
+              <h3>Baphirmationator</h3>
+
+              <div v-if="selectedCategory" class="buttons">
+                <h3>{{ selectedCategory }}</h3>
               </div>
 
-              <div class="buttons">
-                <button v-for="(category, key) in baphirmationCategories" :key="key" type="button" @click="selectCategory(key)">{{ key }}</button>
+              <div v-else-if="selectedCategory === null" class="buttons">
+                <h3>You are the Ultimate Source of Empowerment!</h3>
               </div>
-
+            
             </header>
 
             <aside class="sidebar">
 
-              <img v-if="selectedCategory" :src="selectedCategoryImage" alt="">
-              <img v-else-if="selectedCategory === null" src="img-001/logo.png" alt="">
+              <div v-if="selectedCategory">
+                <img v-if="selectedCategory" :src="selectedCategoryImage" alt="">
+              </div>
+
+              <div v-else-if="selectedCategory === null" >
+                <img src="img-001/logo.png" alt="">
+              </div>
 
             </aside>
 
             <article class="content">
 
               <div v-if="selectedCategory">
-                <h3>{{ selectedCategory }}</h3>
                 <p>{{ currentBaphirmation }}</p>    
-                <button type="button" @click="generateNextBaphirmation">
-                  Baphirmate
-                </button>
               </div>
-
+              
               <div v-else-if="selectedCategory === null">
-                <h3>You are the Ultimate Source of Empowerment!</h3>
-                <p>
-                  Awaken the dormant powers that slumber within your breast, as you invoke the enigmatic Baphirmationator. 
-                  Embark upon this phantasmagoric voyage, and commence the cultivation of your indomitable spirit anon.
-                </p>
+                <p>Choose a Category to start the Baphirmationator</p>
               </div>
 
             </article>
 
             <footer class="footer">
 
-              Footer
-            
+              <div v-if="selectedCategory"   class="buttons">  
+                <button type="button" @click="generateNextBaphirmation">
+                  Baphirmate
+                </button>
+              </div> 
+
+              <div v-else-if="selectedCategory === null" class="buttons">
+                <button type="button">
+                  Click a Category to Begin
+                </button>
+              </div>
+            </footer>
+
+            <footer class="footer">
+
+              <div class="buttons">
+                <button v-for="(category, key) in baphirmationCategories" :key="key" type="button" @click="selectCategory(key)">{{ key }}</button>
+              </div>
             </footer>
           
           </div> <!-- end of wrapper div -->
