@@ -11,6 +11,10 @@ h1, p {
   margin: 0 0 1em 0;
 }
 
+.header {
+  background: url("img-001/nightshade@0.5x.png") top left no-repeat;
+}
+
 /* Style for button container */
 .buttons {
   display: flex;
