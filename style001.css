@@ -22,7 +22,7 @@ h1, p {
 .buttons button {
   padding: 10px 20px;
   margin: 0 5px;
-  border: 2px solid #000;
+  border: 2px solid #312450;
   background-color: #312450;
   color: #fff;
   border-radius: 5px;
@@ -91,6 +91,7 @@ article {
   background-color: #5E42A6;
   color: #fff;
   border-radius: 5px;
+  border: solid 2px #312450;
   padding: 10px;
   font-size: 120%;
   margin-bottom: 10px; /* Needed for floated layout */
