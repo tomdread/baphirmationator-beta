@@ -2,60 +2,89 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Beta Baphirmationator</title>
+    <title>Baphirmationator Beta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="vue.global.js"></script>
+    <link rel="stylesheet" href="style001.css">
+
   </head>
   <body>
-    <div id="app">
+       <div id="app">
+            <div class="wrapper">
+          
+            <header class="branding">
 
-      <header>
-
-        <h1>Beta Baphirmationator <span v-if="baphirmationatorData">{{ baphirmationatorData.baphirmationator_version }}  </span></h1>        
-        <p v-if="baphirmationatorData">{{ baphirmationatorData.about }}</p>
-      </header>
-
-      <main>
-
-
-        
-  <div class="baphirmation" v-if="selectedCategory">
-            <h3>{{ selectedCategory }}</h3>
-            <p>{{ selectedCategoryDescription }}</p>
+              <img src="img-001/aster004@0.5x.png" alt="Baphirmationator Logo" class="logo">
+                <div class="siteSlogan">
+                <p class="siteSlogan">Aster Nightshade's</p>
+                <h1 class="siteName">Baphirmationator</h1>
+              </div>
             
-            <button type="button" class="" @click="generateNextBaphirmation">
-              <img :src="selectedCategoryImage" alt="">
-              <h2>Baphirmate</h2>
-            </button>
+            </header>
+
+            <header class="header">
+
+              <div v-if="selectedCategory" class="buttons">
+                <h2 class="category">{{ selectedCategory }}</h2>
+              </div>
+
+              <div v-else-if="selectedCategory === null" class="buttons">
+                <h2 class="category">You are the Ultimate Source of Empowerment!</h2>
+              </div>
             
-              <p class="currentBaphirmationText">{{ currentBaphirmation }}</p>
-            
+            </header>
 
-        </div>
+            <aside class="sidebar">
 
-        <div class="baphirmation" v-else-if="selectedCategory === null">
-            <h3>You're the Ultimate Source of Empowerment!</h3>
-            <br />
-            <p>
-              Transform your life with the Baphirmationator! Choose from a wide range of categories, including love, career, and personal growth, and start empowering yourself today. Access our easy-to-use app whenever you need it and build a positive mindset that will help you tackle anything life throws your way. Select a category below and get started!
-            </p>
-        </div>
+              <div v-if="selectedCategory">
+                <img v-if="selectedCategory" :src="selectedCategoryImage" alt="">
+              </div>
 
-        <div class="categories">
-          <button type="button" class="" v-for="(category, key) in baphirmationCategories" :key="key" @click="selectCategory(key)">
-            <img :src="category.image_url" alt="">
-            <h2>{{ key }}</h2>
-          </button>
-        </div>
+              <div v-else-if="selectedCategory === null">
+                <img src="img-001/Baphomet_Giraffe_Linda.png" alt="" class=""> 
+              </div>
+              
 
-      </main>
+            </aside>
 
-      <footer>
-        <p>&copy; 2023 Baphirmationator</p>
-      </footer>
-      
-    </div>
+            <article class="content">
+
+              <div v-if="selectedCategory">
+                <p>{{ currentBaphirmation }}</p>    
+              </div>
+              
+              <div v-else-if="selectedCategory === null">
+                <p>Choose a Category to start the Baphirmationator</p>
+              </div>
+
+            </article>
+
+            <footer class="footer category">
+
+              <div v-if="selectedCategory"   class="buttons">  
+                <button type="button" @click="generateNextBaphirmation">
+                  Baphirmate
+                </button>
+              </div> 
+
+              <div v-else-if="selectedCategory === null" class="buttons">
+                <button type="button">
+                  Click a Category to Begin
+                </button>
+              </div>
+            </footer>
+
+            <footer class="footer">
+
+              <div class="buttons">
+                <button v-for="(category, key) in baphirmationCategories" :key="key" type="button" @click="selectCategory(key)">{{ key }}</button>
+              </div>
+            </footer>
+          
+          </div> <!-- end of wrapper div -->
+
+
+      </div> <!-- end of app div -->
     <script src="app.js"></script>
   </body>
 </html>
