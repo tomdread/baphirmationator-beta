@@ -2,24 +2,108 @@
 body {
   margin: 10px;
   font-family: 'Open Sans', 'sans-serif';
-  background-color: #B74E91;
   color: #444;
+  background-color: #B74E91;
 }
 
 /* Set margin and spacing for headings and paragraphs */
 h1, p {
-  margin: 0 0 1em 0;
+  margin: 0 0 0 0;
 }
 
-.header {
-  background: url("img-001/nightshade@0.5x.png") top left no-repeat;
+.branding {
+  background: url("img-001/bg.png") top left no-repeat;
 }
+
+.category {
+  margin: 0 0 0 0;
+}
+
+/* Style for sidebar - use flexbox to align elements */
+.sidebar {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+/* Style for article - use flexbox to align elements */
+article {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+/* Reset box-sizing for all elements */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Style for sidebar when grid is not supported */
+.sidebar {
+  float: left;
+  width: 49%;
+}
+
+/* Style for wrapper - use grid layout */
+.wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+/* Style for each item in wrapper - use grid layout */
+.wrapper > * {
+  background-color: #5E42A6;
+  color: #fff;
+  border-radius: 5px;
+  border: solid 2px #312450;
+  padding: 10px;
+  font-size: 100%;
+  margin-bottom: 10px; /* Needed for floated layout */
+}
+
+
+
+
+.branding{
+  grid-column: 1 / -1;
+  clear: both; /* Needed for floated layout */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Style for header and footer - use grid layout */
+.header, .footer {
+  grid-column: 1 / -1;
+  clear: both; /* Needed for floated layout */
+}
+
+/* Style for wrapper when grid is supported - reset margin and width */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.content {
+  font-size: 120%;
+}
+
 
 /* Style for button container */
 .buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 }
 
 /* Style for each button */
@@ -53,64 +137,3 @@ h1, p {
   margin: 5px;
 }
 
-/* Style for sidebar - use flexbox to align elements */
-.sidebar {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
-
-/* Style for article - use flexbox to align elements */
-article {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-
-/* Reset box-sizing for all elements */
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-/* Style for sidebar when grid is not supported */
-.sidebar {
-  float: left;
-  width: 19.1489%;
-}
-
-/* Style for wrapper - use grid layout */
-.wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
-}
-
-/* Style for each item in wrapper - use grid layout */
-.wrapper > * {
-  background-color: #5E42A6;
-  color: #fff;
-  border-radius: 5px;
-  border: solid 2px #312450;
-  padding: 10px;
-  font-size: 120%;
-  margin-bottom: 10px; /* Needed for floated layout */
-}
-
-/* Style for header and footer - use grid layout */
-.header, .footer {
-  grid-column: 1 / -1;
-  clear: both; /* Needed for floated layout */
-}
-
-/* Style for wrapper when grid is supported - reset margin and width */
-@supports (display: grid) {
-  .wrapper > * {
-    width: auto;
-    margin: 0;
-  }
-}

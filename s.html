@@ -10,19 +10,26 @@
   </head>
   <body>
        <div id="app">
+            <div class="wrapper">
+          
+            <header class="branding">
 
-          <div class="wrapper">
+              <img src="img-001/aster004@0.5x.png" alt="Baphirmationator Logo" class="logo">
+                <div class="siteSlogan">
+                <p class="siteSlogan">Aster Nightshade's</p>
+                <h1 class="siteName">Baphirmationator</h1>
+              </div>
+            
+            </header>
 
-            <header class="header"> 
-              <img class="logo" src="img-001/aster192x192.png" alt="Baphirmationator Logo">
-              <h3 class="siteName">Baphirmationator</h3>
+            <header class="header">
 
               <div v-if="selectedCategory" class="buttons">
-                <h3>{{ selectedCategory }}</h3>
+                <h2 class="category">{{ selectedCategory }}</h2>
               </div>
 
               <div v-else-if="selectedCategory === null" class="buttons">
-                <h3>You are the Ultimate Source of Empowerment!</h3>
+                <h2 class="category">You are the Ultimate Source of Empowerment!</h2>
               </div>
             
             </header>
@@ -33,9 +40,10 @@
                 <img v-if="selectedCategory" :src="selectedCategoryImage" alt="">
               </div>
 
-              <div v-else-if="selectedCategory === null" >
-                <img src="img-001/aster003.png" alt="">
+              <div v-else-if="selectedCategory === null">
+                <img src="img-001/Baphomet_Giraffe_Linda.png" alt="" class=""> 
               </div>
+              
 
             </aside>
 
@@ -51,7 +59,7 @@
 
             </article>
 
-            <footer class="footer">
+            <footer class="footer category">
 
               <div v-if="selectedCategory"   class="buttons">  
                 <button type="button" @click="generateNextBaphirmation">
